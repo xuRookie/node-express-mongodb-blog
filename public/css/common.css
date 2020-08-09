@@ -1,0 +1,91 @@
+.color-blue {
+    color: var(--blue);
+}
+.color-indigo {
+    color: var(--indigo);
+}
+.color-purple {
+    color: var(--purple);
+}
+.color-red {
+    color: var(--red);
+}
+.color-orange {
+    color: var(--orange);
+}
+.color-yellow {
+    color: var(--yellow);
+}
+.color-green {
+    color: var(--green);
+}
+.color-teal {
+    color: var(--teal);
+}
+.color-cyan {
+    color: var(--cyan);
+}
+.color-white {
+    color: var(--white);
+}
+.color-gray {
+    color: var(--gray);
+}
+.color-gray-dark {
+    color: var(--gray-dark);
+}
+.color-primary {
+    color: var(--primary);
+}
+.color-secondary {
+    color: var(--secondary);
+}
+.color-success {
+    color: var(--success);
+}
+.color-info {
+    color: var(--info);
+}
+.color-warning {
+    color: var(--warning);
+}
+.color-danger {
+    color: var(--danger);
+}
+.color-light {
+    color: var(--light);
+}
+.color-dark {
+    color: var(--dark);
+}
+
+.navbar-brand img {
+    width: 225px;
+    height: 50px;
+}
+
+.content {
+    /* background-color: #fff; */
+}
+.user-container .user-btns {
+    margin-bottom: 10px;
+}
+.user-container .table-responsive {
+    background-color: #fff;
+}
+
+.user-container .table {
+    margin-bottom: 0;
+}
+
+.toast {
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    min-width: 200px;
+}
+
+.article-container .img-thumbnail {
+    width: 160px;
+    height: 160px;
+}

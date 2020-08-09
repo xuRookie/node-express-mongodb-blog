@@ -1,0 +1,29 @@
+<footer>
+    <div class="footavatar">
+        <img src="/images/avatar01.jpg" class="footphoto">
+        <ul class="footinfo">
+            <p class="fname"><a href="/home/about">提莫找蘑菇</a> </p>
+            <p class="finfo">性别：男 年龄：25岁</p>
+            <p>现居：四川成都</p>
+        </ul>
+    </div>
+    <section class="visitor">
+        <h2>最近访客</h2>
+        <ul>
+            <li><a href="javascript:;"><img src="/images/s0.jpg"></a></li>
+            <li><a href="javascript:;"><img src="/images/s1.jpg"></a></li>
+            <li><a href="javascript:;"><img src="/images/s2.jpg"></a></li>
+            <li><a href="javascript:;"><img src="/images/s3.jpg"></a></li>
+            <li><a href="javascript:;"><img src="/images/s5.jpg"></a></li>
+            <li><a href="javascript:;"><img src="/images/s6.jpg"></a></li>
+            <li><a href="javascript:;"><img src="/images/s7.jpg"></a></li>
+            <li><a href="javascript:;"><img src="/images/s8.jpg"></a></li>
+        </ul>
+    </section>
+    <div class="Copyright">
+        <ul>
+            <a href="javascript:;">帮助中心</a><a href="javascript:;">空间客服</a><a href="javascript:;">投诉中心</a><a href="javascript:;">空间协议</a>
+        </ul>
+        <p>Design by XuZhiQiang</p>
+    </div>
+</footer>

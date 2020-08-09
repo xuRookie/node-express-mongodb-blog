@@ -1,0 +1,13 @@
+<header>
+    <nav id="nav">
+        <ul>
+            <li><a href="/home" class="{{frontLink == 'index' ? 'nav_current' : ''}}">网站首页</a></li>
+            <li><a href="#" class="{{frontLink == 'about' ? 'nav_current' : ''}}">关于我的</a></li>
+        </ul>
+        {{if userInfo}}
+        <a href="/admin/logout" class="login">退出</a>
+        {{else}}
+        <a href="/admin/login" class="login">登录</a>
+        {{/if}}
+    </nav>
+</header>

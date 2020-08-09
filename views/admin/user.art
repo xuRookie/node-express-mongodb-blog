@@ -1,0 +1,98 @@
+{{extend './common/layout.art'}}
+
+{{block 'main'}}
+<div class="user-container">
+    {{if userInfo && userInfo.role == 'admin'}}
+    <div class="user-btns">
+        <a href="/admin/operateUser?type=add" class="btn btn-primary">
+            <i class="fa fa-plus"></i> &nbsp; 新增用户
+        </a>
+    </div>
+    {{/if}}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>用户角色</th>
+                <th>邮箱</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{each users}}
+            <tr>
+                <td>{{@$value._id}}</td>
+                <td>{{$value.username}}</td>
+                <td>{{$value.role == 'admin' ? '超级管理员' : '普通用户'}}</td>
+                <td class="text-nowrap">{{$value.email}}</td>
+                <td>{{$value.status == 0 ? '启用': '禁用'}}</td>
+                <td>
+                    <a href="/admin/operateUser?type=edit&page={{page}}&id={{@$value._id}}" class="color-primary mr-2"><i class="fa fa-edit"></i>编辑</a>
+                    <a href="#" class="color-primary btn-delete"
+                        data-id="{{@$value._id}}"
+                        data-toggle="modal"
+                        data-target="#deleteModal"
+                    >
+                        <i class="fa fa-trash"></i>删除
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="Page navigation example" class="table-pagination mt-3">
+        <ul class="pagination">
+            <li class="page-item <%= page-1 < 1 ? 'disabled' : '' %>">
+                <a class="page-link" href="/admin/user?page=<%=page-1%>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <% for (var i = 1; i <= total; i++) { %>
+            <li class="page-item <%= page == i ? 'active' : '' %>">
+                <a class="page-link" href="/admin/user?page=<%=i %>">{{i}}</a>
+            </li>
+            <% } %>
+            <li class="page-item <%= page-0+1 > total ? 'disabled' : '' %>">
+                <a class="page-link" href="/admin/user?page=<%=page-0+1%>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <form class="modal-form" method="post" action="/admin/userDelete">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">删除</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        是否确定删除该用户信息？
+                        <input type="hidden" name="id" id="deleteId">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}}
+{{block 'script'}}
+    <script>
+        $('.btn-delete').on('click', function() {
+            var id = $(this).data('id')
+            $('#deleteId').val(id)
+        })
+    </script>
+{{/block}}

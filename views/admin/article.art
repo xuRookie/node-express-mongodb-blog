@@ -1,0 +1,98 @@
+{{extend './common/layout.art'}}
+
+{{block 'main'}}
+<div class="user-container">
+    {{if userInfo && userInfo.role == 'admin'}}
+    <div class="user-btns">
+        <a href="/admin/articleControl?type=add" class="btn btn-primary">
+            <i class="fa fa-plus"></i> &nbsp; 新增文章
+        </a>
+    </div>
+    {{/if}}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>文章标题</th>
+                <th>发布时间</th>
+                <th>作者</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{each articles.records}}
+            <tr>
+                <td>{{@$value._id}}</td>
+                <td>{{$value.title}}</td>
+                <td>{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</td>
+                <td class="text-nowrap">{{$value.author.username}}</td>
+                <td>
+                    <a href="/admin/articleControl?type=edit&page={{articles.page}}&id={{@$value._id}}" class="color-primary mr-2"><i class="fa fa-edit"></i>编辑</a>
+                    <a href="#" class="color-primary btn-delete"
+                        data-id="{{@$value._id}}"
+                        data-toggle="modal"
+                        data-target="#deleteModal"
+                    >
+                        <i class="fa fa-trash"></i>删除
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{if articles.total}}
+    <nav aria-label="Page navigation example" class="table-pagination mt-3">
+        <ul class="pagination">
+            <li class="page-item {{articles.page > 1 ? '' : 'disabled'}}">
+                <a class="page-link" href="/admin/article?page={{articles.page - 1}}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {{each articles.display}}
+            <li class="page-item {{articles.page == $value ? 'active' : ''}}">
+                <a class="page-link" href="/admin/article?page={{$value}}">{{$value}}</a>
+            </li>
+            {{/each}}
+            <li class="page-item {{articles.page < articles.pages ? '' : 'disabled'}}">
+                <a class="page-link" href="/admin/article?page={{articles.page - 0 + 1}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    {{/if}}
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <form class="modal-form" method="post" action="/admin/articleDelete">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">删除</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        是否确定删除该文章？
+                        <input type="hidden" name="id" id="deleteId">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}}
+{{block 'script'}}
+    <script>
+        $('.btn-delete').on('click', function() {
+            var id = $(this).data('id')
+            $('#deleteId').val(id)
+        })
+    </script>
+{{/block}}

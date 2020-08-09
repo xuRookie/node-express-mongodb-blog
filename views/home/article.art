@@ -1,0 +1,44 @@
+{{extend './common/layout.art'}}
+
+{{block 'main'}}
+<div class="blogitem">
+    <article>
+        <h2 class="title"><a href="#">{{article.title}}</a></h2>
+        <div class="text">
+            {{article.content.replace(/<[^>]+>/g, '')}}
+        </div>
+    </article>
+    <div class="article-comment">
+        <h2 class="comment-title">评论</h2>
+        {{if userInfo}}
+        <form class="comment-form" method="post" action="/home/comment">
+            <div class="comment-content">
+                <textarea name="content" cols="30" rows="6"></textarea>
+            </div>
+            <input type="hidden" name="uid" value="{{@userInfo._id}}">
+            <input type="hidden" name="aid" value="{{@article._id}}">
+            <div class="modal-footer">
+                <button type="submit" class="comment-btn">提交</button>
+            </div>
+        </form>
+        {{else}}
+        <p class="tips">登录后可以添加评论</p>
+        {{/if}}
+
+        <div class="comment-list">
+            {{each comments}}
+            <div class="article-info">
+                <span class="author">{{$value.uid.username}}</span>
+                <span class="line">|</span>
+                <span>{{dateFormat($value.time, 'yyyy-mm-dd')}}</span>
+                <span class="line">|</span>
+                <span>{{$value.uid.email}}</span>
+            </div>
+            <div class="comment-content">
+                {{$value.content}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/block}}

@@ -1,0 +1,11 @@
+{{extend './common/container.art'}}
+
+{{block 'main'}}
+<div class="alert alert-danger" role="alert">
+  {{msg}}
+</div>
+{{/block}}
+
+{{block 'script'}}
+    <script></script>
+{{/block}}

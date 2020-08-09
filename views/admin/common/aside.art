@@ -1,0 +1,40 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-title">Navigation</li>
+
+            <li class="nav-item">
+                <a href="/admin/index" class="nav-link {{currentLink == 'index' ? 'active' : ''}}">
+                    <i class="icon icon-home"></i> 首页
+                </a>
+            </li>
+
+            <li class="nav-item nav-dropdown {{currentLink == 'user' ? 'open' : ''}}">
+                <a href="#" class="nav-link nav-dropdown-toggle">
+                    <i class="icon icon-user"></i> 用户管理 <i class="fa fa-caret-right"></i>
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="/admin/user" class="nav-link {{currentLink == 'user' ? 'active' : ''}}">
+                            <i class="icon icon-list"></i> 用户列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown {{currentLink == 'article' ? 'open' : ''}}">
+                <a href="#" class="nav-link nav-dropdown-toggle">
+                    <i class="icon icon-doc"></i> 文章管理 <i class="fa fa-caret-right"></i>
+                </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="/admin/article" class="nav-link {{currentLink == 'article' ? 'active' : ''}}">
+                            <i class="icon icon-list"></i> 文章列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

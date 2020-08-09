@@ -1,0 +1,35 @@
+{{extend './common/layout.art'}}
+
+{{block 'main'}}
+<div class="blogitem">
+    {{each result.records}}
+    <article>
+        <h2 class="title"><a href="/home/article?id={{@$value._id}}">{{$value.title}}</a></h2>
+        <div class="text">
+            {{@$value.content.replace(/<[^>]+>/g, '').substr(0, 150) + '...'}}
+        </div>
+        <div class="textfoot">
+            <a href="/home/article?id={{@$value._id}}">阅读全文</a>
+            <a href="javascript:;">发布时间: {{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</a>
+        </div>
+    </article>
+    {{/each}}
+    <div class="pages">
+        {{if result.page > 1}}
+        <a href="/home?page={{result.page - 1}}" class="prev">&lt;&lt;上一页</a>
+        {{/if}}
+
+        {{each result.display}}
+            {{if $value == result.page}}
+            <span>{{$value}}</span>
+            {{else}}
+            <a href="/home?page={{$value}}">{{$value}}</a>
+            {{/if}}
+        {{/each}}
+
+        {{if result.page < result.pages}}
+        <a href="/home?page={{result.page - 0 + 1}}" class="next">下一页&gt;&gt;</a>
+        {{/if}}
+    </div>
+</div>
+{{/block}}

@@ -1,0 +1,46 @@
+{{extend './common/container.art'}}
+{{block 'main'}}
+{{if msg}}
+<div class="alert alert-dismissible alert-danger">
+    {{msg}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+<form method="post" action="/admin/login" class="form-validate" id="loginForm">
+    <div class="form-group">
+        <input id="login-username" type="text" name="username" required
+            data-msg="请输入用户名" placeholder="用户名" class="input-material">
+    </div>
+    <div class="form-group">
+        <input id="login-password" type="password" name="password" required
+            data-msg="请输入密码" placeholder="密码" class="input-material">
+    </div>
+    <button id="login" type="submit" class="btn btn-primary">登录</button>
+</form>
+<br />
+<small>没有账号?</small><a href="/admin/register" class="signup">&nbsp;注册</a>
+
+{{/block}}
+
+{{block 'script'}}
+    <script>
+        $(document).ready(function() {
+            formValidate()
+            $('#loginForm').on('submit', function() {
+                var $form = $(this)
+                var data = serializeToJson($form)
+                var name = data.username.trim()
+                var password = data.password.trim()
+                if (!name) {
+                    return false
+                }
+                if (!password) {
+                    return false
+                }
+                return data
+            })
+        })
+    </script>
+{{/block}}
