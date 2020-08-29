@@ -3,6 +3,6 @@ module.exports = function(req, res) {
         // 清除模版中的用户信息
         req.app.locals.userInfo = null
         res.clearCookie('connect.sid')
-        res.redirect('/admin/login')
+        res.redirect('/blog-admin/login')
     })
 }

@@ -5,9 +5,9 @@
             <li><a href="#" class="{{frontLink == 'about' ? 'nav_current' : ''}}">关于我的</a></li>
         </ul>
         {{if userInfo}}
-        <a href="/admin/logout" class="login">退出</a>
+        <a href="/blog-admin/logout" class="login">退出</a>
         {{else}}
-        <a href="/admin/login" class="login">登录</a>
+        <a href="/blog-admin/login" class="login">登录</a>
         {{/if}}
     </nav>
 </header>

@@ -45,7 +45,7 @@ module.exports = async function(req, res) {
                 password: password
             }
             var result = await User.create(params)
-            res.redirect('/admin/login')
+            res.redirect('/blog-admin/login')
         } catch(err) {
             return res.status(400).render('admin/register', {
                 msg: err.message

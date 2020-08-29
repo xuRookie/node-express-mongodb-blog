@@ -6,7 +6,7 @@
     <title>个人博客模板</title>
     <meta name="keywords" content="个人博客模板" />
     <meta name="description" content="个人博客模板" />
-    <link href="/css/home.css" rel="stylesheet">
+    <link href="{{prodPath}}/css/home.css" rel="stylesheet">
     {{block 'link'}}{{/block}}
     <!--[if lt IE 9]>
     <script src="/js/modernizr.js"></script>
@@ -21,9 +21,9 @@
     </div>
 
     {{include './footer.art'}}
-    <script src="/js/jquery.slim.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="{{prodPath}}/js/jquery.slim.min.js"></script>
+    <script src="{{prodPath}}/js/popper.min.js"></script>
+    <script src="{{prodPath}}/js/bootstrap.min.js"></script>
 
     {{block 'script'}}{{/block}}
 </body>

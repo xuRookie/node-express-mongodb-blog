@@ -11,7 +11,7 @@
     <div class="article-comment">
         <h2 class="comment-title">评论</h2>
         {{if userInfo}}
-        <form class="comment-form" method="post" action="/home/comment">
+        <form class="comment-form" method="post" action="/blog-home/comment">
             <div class="comment-content">
                 <textarea name="content" cols="30" rows="6"></textarea>
             </div>

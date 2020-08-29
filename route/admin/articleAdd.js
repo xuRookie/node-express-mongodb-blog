@@ -23,6 +23,6 @@ module.exports = function(req, res) {
             content: fields.content,
         })
 
-        res.redirect('/admin/article')
+        res.redirect('/blog-admin/article')
     })
 }

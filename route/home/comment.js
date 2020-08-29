@@ -10,5 +10,5 @@ module.exports = async function(req, res) {
         time: new Date()
     })
 
-    res.redirect('/home/article?id=' + params.aid)
+    res.redirect('/blog-home/article?id=' + params.aid)
 }

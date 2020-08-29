@@ -10,7 +10,7 @@ module.exports = async function(req, res, next) {
         await validateUser(req)
     } catch(err) {
         var routeParams = {
-            path: '/admin/operateUser',
+            path: '/blog-admin/operateUser',
             type: 'edit',
             id: id,
             message: err.message
@@ -29,5 +29,5 @@ module.exports = async function(req, res, next) {
         role: req.body.role,
         status: req.body.status,
     })
-    res.redirect('/admin/user')
+    res.redirect('/blog-admin/user')
 }

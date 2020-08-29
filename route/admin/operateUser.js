@@ -13,14 +13,14 @@ module.exports = async function(req, res) {
             user: user,
             type: params.type,
             msg: params.massage,
-            link: '/admin/userEdit?id=' + params.id
+            link: '/blog-admin/userEdit?id=' + params.id
         })
     } else {
         res.render('admin/operateUser', {
             type: params.type,
             user: {},
             msg: params.massage,
-            link: '/admin/userAdd'
+            link: '/blog-admin/userAdd'
         })
     }
 }

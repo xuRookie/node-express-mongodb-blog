@@ -25,9 +25,9 @@ var login = async function(req, res) {
             req.session.role = result.role
             req.app.locals.userInfo = result
             if (result.role == 'admin') {
-                res.redirect('/admin/index')
+                res.redirect('/blog-admin/index')
             } else {
-                res.redirect('/home')
+                res.redirect('/blog-home')
             }
         } else {
             res.status(400).render('admin/login', {

@@ -8,7 +8,7 @@
     </button>
 </div>
 {{/if}}
-<form method="post" action="/admin/login" class="form-validate" id="loginForm">
+<form method="post" action="/blog-admin/login" class="form-validate" id="loginForm">
     <div class="form-group">
         <input id="login-username" type="text" name="username" required
             data-msg="请输入用户名" placeholder="用户名" class="input-material">
@@ -20,7 +20,7 @@
     <button id="login" type="submit" class="btn btn-primary">登录</button>
 </form>
 <br />
-<small>没有账号?</small><a href="/admin/register" class="signup">&nbsp;注册</a>
+<small>没有账号?</small><a href="/blog-admin/register" class="signup">&nbsp;注册</a>
 
 {{/block}}
 

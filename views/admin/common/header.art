@@ -3,7 +3,7 @@
         <i class="fa fa-bars"></i>
     </a>
 
-    <a class="navbar-brand" href="/admin/index">
+    <a class="navbar-brand" href="/blog-admin/index">
         <img src="/images/header.png" alt="logo">
     </a>
 
@@ -49,7 +49,7 @@
                     <i class="fa fa-bell"></i> 通知
                 </a>
 
-                <a href="/admin/logout" class="dropdown-item">
+                <a href="/blog-admin/logout" class="dropdown-item">
                     <i class="fa fa-lock"></i> 退出
                 </a>
             </div>

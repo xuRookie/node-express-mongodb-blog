@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog - Content Manager</title>
-    <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/common.css">
+    <link rel="icon" href="{{prodPath}}/images/favicon.ico" />
+    <link rel="stylesheet" href="{{prodPath}}/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="{{prodPath}}/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="{{prodPath}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{prodPath}}/css/styles.css">
+    <link rel="stylesheet" href="{{prodPath}}/css/common.css">
     {{block 'link'}}{{/block}}
 </head>
 <body class="sidebar-fixed header-fixed">
@@ -24,15 +25,15 @@
             </div>
         </div>
     </div>
-    <script src="/js/jquery.slim.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.validate.min.js"></script>
-    <script src="/vendor/chart.js/chart.min.js"></script>
-    <script src="/js/carbon.js"></script>
-    <script src="/js/demo.js"></script>
-    <script src="/js/utils.js"></script>
-    <script src="/js/wangEditor.min.js"></script>
+    <script src="{{prodPath}}/js/jquery.slim.min.js"></script>
+    <script src="{{prodPath}}/js/popper.min.js"></script>
+    <script src="{{prodPath}}/js/bootstrap.min.js"></script>
+    <script src="{{prodPath}}/js/jquery.validate.min.js"></script>
+    <script src="{{prodPath}}/vendor/chart.js/chart.min.js"></script>
+    <script src="{{prodPath}}/js/carbon.js"></script>
+    <script src="{{prodPath}}/js/demo.js"></script>
+    <script src="{{prodPath}}/js/utils.js"></script>
+    <script src="{{prodPath}}/js/wangEditor.min.js"></script>
     {{block 'script'}}{{/block}}
 </body>
 </html>

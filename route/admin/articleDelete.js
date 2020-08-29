@@ -4,5 +4,5 @@ var Article = ArticleCollection.Article
 module.exports = async function(req, res) {
     var id = req.body.id
     await Article.findOneAndDelete({_id: id})
-    res.redirect('/admin/article')
+    res.redirect('/blog-admin/article')
 }

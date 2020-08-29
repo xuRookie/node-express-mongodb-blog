@@ -34,7 +34,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="publishDate-input" class="form-control-label">发布时间</label>
-                            <input type="date" id="publishDate-input" name="publishDate" class="form-control" placeholder="请选择发布时间" value="{{article.publishDate}}">
+                            <input type="date" id="publishDate-input" name="publishDate" class="form-control" placeholder="请选择发布时间" value="{{dateFormat(article.publishDate, 'yyyy-mm-dd')}}">
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="/admin/article" class="btn btn-secondary">返回</a>
+                    <a href="/blog-admin/article" class="btn btn-secondary">返回</a>
                     <button type="submit" class="btn btn-primary btn-save">保存</button>
                 </div>
             </form>
@@ -112,7 +112,7 @@
             // 隐藏“网络图片”tab
             // editor.customConfig.showLinkImg = false
             // 配置服务器端地址
-            editor.customConfig.uploadImgServer = '/admin/upload'
+            editor.customConfig.uploadImgServer = '/blog-admin/upload'
             // 将图片大小限制为 5M
             editor.customConfig.uploadImgMaxSize = 5 * 1024 * 1024
             editor.customConfig.uploadImgMaxLength = 1

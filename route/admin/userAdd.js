@@ -9,7 +9,7 @@ module.exports = async function(req, res, next) {
         await validateUser(req)
     } catch(err) {
         var routeParams = {
-            path: '/admin/operateUser',
+            path: '/blog-admin/operateUser',
             type: 'add',
             message: err.message
         }
@@ -21,7 +21,7 @@ module.exports = async function(req, res, next) {
     // 如果用户存在，用户名则已被使用
     if (user) {
         var routeParams = {
-            path: '/admin/operateUser',
+            path: '/blog-admin/operateUser',
             type: 'add',
             message: '用户名已存在'
         }
@@ -34,5 +34,5 @@ module.exports = async function(req, res, next) {
     req.body.password = password
 
     var user = await User.create(req.body)
-    res.redirect('/admin/user')
+    res.redirect('/blog-admin/user')
 }

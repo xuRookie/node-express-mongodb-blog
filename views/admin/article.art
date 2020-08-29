@@ -4,7 +4,7 @@
 <div class="user-container">
     {{if userInfo && userInfo.role == 'admin'}}
     <div class="user-btns">
-        <a href="/admin/articleControl?type=add" class="btn btn-primary">
+        <a href="/blog-admin/articleControl?type=add" class="btn btn-primary">
             <i class="fa fa-plus"></i> &nbsp; 新增文章
         </a>
     </div>
@@ -28,7 +28,7 @@
                 <td>{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</td>
                 <td class="text-nowrap">{{$value.author.username}}</td>
                 <td>
-                    <a href="/admin/articleControl?type=edit&page={{articles.page}}&id={{@$value._id}}" class="color-primary mr-2"><i class="fa fa-edit"></i>编辑</a>
+                    <a href="/blog-admin/articleControl?type=edit&page={{articles.page}}&id={{@$value._id}}" class="color-primary mr-2"><i class="fa fa-edit"></i>编辑</a>
                     <a href="#" class="color-primary btn-delete"
                         data-id="{{@$value._id}}"
                         data-toggle="modal"
@@ -46,17 +46,17 @@
     <nav aria-label="Page navigation example" class="table-pagination mt-3">
         <ul class="pagination">
             <li class="page-item {{articles.page > 1 ? '' : 'disabled'}}">
-                <a class="page-link" href="/admin/article?page={{articles.page - 1}}" aria-label="Previous">
+                <a class="page-link" href="/blog-admin/article?page={{articles.page - 1}}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             {{each articles.display}}
             <li class="page-item {{articles.page == $value ? 'active' : ''}}">
-                <a class="page-link" href="/admin/article?page={{$value}}">{{$value}}</a>
+                <a class="page-link" href="/blog-admin/article?page={{$value}}">{{$value}}</a>
             </li>
             {{/each}}
             <li class="page-item {{articles.page < articles.pages ? '' : 'disabled'}}">
-                <a class="page-link" href="/admin/article?page={{articles.page - 0 + 1}}" aria-label="Next">
+                <a class="page-link" href="/blog-admin/article?page={{articles.page - 0 + 1}}" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
@@ -67,7 +67,7 @@
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
-                <form class="modal-form" method="post" action="/admin/articleDelete">
+                <form class="modal-form" method="post" action="/blog-admin/articleDelete">
                     <div class="modal-header">
                         <h5 class="modal-title" id="deleteModalLabel">删除</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -35,12 +35,13 @@ app.use('/admin', require('./middleware/loginIntercept'))
 if (process.env.NODE_ENV == 'development') {
     // 开发环境中，将客户端发送到服务器端的请求打印到控制台
     app.use(morgan('dev'))
+    artTemplate.defaults.imports.prodPath = ''
 } else {
-    console.log('生产环境')
+    artTemplate.defaults.imports.prodPath = '/blog'
 }
 
-app.use('/home', home)
-app.use('/admin', admin)
+app.use('/blog-home', home)
+app.use('/blog-admin', admin)
 
 app.use(function(err, req, res, next) {
     var params = JSON.parse(err)

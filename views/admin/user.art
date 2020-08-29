@@ -4,7 +4,7 @@
 <div class="user-container">
     {{if userInfo && userInfo.role == 'admin'}}
     <div class="user-btns">
-        <a href="/admin/operateUser?type=add" class="btn btn-primary">
+        <a href="/blog-admin/operateUser?type=add" class="btn btn-primary">
             <i class="fa fa-plus"></i> &nbsp; 新增用户
         </a>
     </div>
@@ -30,7 +30,7 @@
                 <td class="text-nowrap">{{$value.email}}</td>
                 <td>{{$value.status == 0 ? '启用': '禁用'}}</td>
                 <td>
-                    <a href="/admin/operateUser?type=edit&page={{page}}&id={{@$value._id}}" class="color-primary mr-2"><i class="fa fa-edit"></i>编辑</a>
+                    <a href="/blog-admin/operateUser?type=edit&page={{page}}&id={{@$value._id}}" class="color-primary mr-2"><i class="fa fa-edit"></i>编辑</a>
                     <a href="#" class="color-primary btn-delete"
                         data-id="{{@$value._id}}"
                         data-toggle="modal"
@@ -47,17 +47,17 @@
     <nav aria-label="Page navigation example" class="table-pagination mt-3">
         <ul class="pagination">
             <li class="page-item <%= page-1 < 1 ? 'disabled' : '' %>">
-                <a class="page-link" href="/admin/user?page=<%=page-1%>" aria-label="Previous">
+                <a class="page-link" href="/blog-admin/user?page=<%=page-1%>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <% for (var i = 1; i <= total; i++) { %>
             <li class="page-item <%= page == i ? 'active' : '' %>">
-                <a class="page-link" href="/admin/user?page=<%=i %>">{{i}}</a>
+                <a class="page-link" href="/blog-admin/user?page=<%=i %>">{{i}}</a>
             </li>
             <% } %>
             <li class="page-item <%= page-0+1 > total ? 'disabled' : '' %>">
-                <a class="page-link" href="/admin/user?page=<%=page-0+1%>" aria-label="Next">
+                <a class="page-link" href="/blog-admin/user?page=<%=page-0+1%>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
@@ -67,7 +67,7 @@
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
-                <form class="modal-form" method="post" action="/admin/userDelete">
+                <form class="modal-form" method="post" action="/blog-admin/userDelete">
                     <div class="modal-header">
                         <h5 class="modal-title" id="deleteModalLabel">删除</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

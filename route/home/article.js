@@ -9,7 +9,7 @@ module.exports = async function(req, res) {
 
     var article = await Article.findOne({_id: id}).populate('author')
     var comments = await Comment.find({aid: id}).populate('uid')
-    res.render('home/article', {
+    res.render('blog-home/article', {
         article: article,
         comments: comments
     })

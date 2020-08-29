@@ -27,7 +27,7 @@ module.exports = async function(req, res, next) {
                 content: fields.content,
             })
 
-            res.redirect('/admin/article')
+            res.redirect('/blog-admin/article')
         })
     } catch(err) {
         var routeParams = {
